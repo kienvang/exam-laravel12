@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NewsResource;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return News::limit(10)->get();
+        return NewsResource::collection(News::limit(10)->get());
     }
 
     /**
